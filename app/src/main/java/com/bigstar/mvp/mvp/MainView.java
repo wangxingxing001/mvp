@@ -1,6 +1,4 @@
 package com.bigstar.mvp.mvp;
-
-
 import com.lzy.okgo.model.Response;
 
 

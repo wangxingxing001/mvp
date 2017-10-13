@@ -17,9 +17,8 @@ public class MainPresenter extends BasePresenter<MainView>{
 
     private Context mContext;
     private String TAG;
-    public MainPresenter(MainView mainView,Context context,String tag){
-        // 既然继承了BasePresenter,把当前的viwe填入进来
-        attachView(mainView);
+
+    public MainPresenter(Context context,String tag){
         this.mContext = context;
         this.TAG = tag;
     }
@@ -33,18 +32,12 @@ public class MainPresenter extends BasePresenter<MainView>{
                 .execute(new StringDialogCallback((Activity) mContext) {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        // 判断view,以免内存泄露
-                        if (mvpView!=null) {
-                            mvpView.getDataModel(response);
-                        }
+                        getView().getDataModel(response);
                     }
 
                     @Override
                     public void onError(Response<String> response) {
-                        // 判断view,以免内存泄露
-                        if (mvpView!=null) {
-                            mvpView.getDataFail(response.message());
-                        }
+                        getView().getDataFail(response.message());
                     }
                 });
     }

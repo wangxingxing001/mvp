@@ -2,13 +2,13 @@ package com.bigstar.mvp.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
+import com.bigstar.mvp.mvp.MainView;
 
 /*
  * 我是大星
  */
-public abstract class MvpAcitivity<P extends BasePresenter> extends BaseActivity {
+public abstract class MvpAcitivity<V extends MainView,P extends BasePresenter> extends BaseActivity {
 
     protected P mvpPresenter;
 
@@ -17,6 +17,8 @@ public abstract class MvpAcitivity<P extends BasePresenter> extends BaseActivity
         super.onCreate(savedInstanceState);
         // 创建Presenter对象
         mvpPresenter = setPresenter();
+        // 让view与prensenter关联
+        mvpPresenter.attachView((V)this);
     }
     // 构建抽象对象,不实现,实现方实现
     protected abstract P setPresenter();
@@ -26,9 +28,7 @@ public abstract class MvpAcitivity<P extends BasePresenter> extends BaseActivity
         super.onDestroy();
         // 如果界面已经destroy,那么需要关闭流,以免内存溢出
         // 关闭了view回调,还需要关闭prensenter
-        if (mvpPresenter != null){
-            mvpPresenter.detachView();
-        }
+        mvpPresenter.detachView();
     }
 
     @Override

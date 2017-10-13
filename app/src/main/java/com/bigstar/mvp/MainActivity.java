@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * activity是个老板,他要出差,让Presenter去给他订票,然后Presenter去执行任务,但是不管什么结果
  * 都需要View小秘书给汇报到activity这块,然后activity拿到并打开任务即Ui
  */
-public class MainActivity extends MvpAcitivity<MainPresenter> implements MainView {
+public class MainActivity extends MvpAcitivity<MainView,MainPresenter> implements MainView {
 
     private String TAG = getClass().getName();
 
@@ -59,7 +59,7 @@ public class MainActivity extends MvpAcitivity<MainPresenter> implements MainVie
     // 在此对Prenseter 实用类进行new,并且指定该View
     @Override
     protected MainPresenter setPresenter() {
-        return new MainPresenter(this,this,TAG);
+        return new MainPresenter(this,TAG);
     }
 
     // 这里是请求成功,返回的对象
