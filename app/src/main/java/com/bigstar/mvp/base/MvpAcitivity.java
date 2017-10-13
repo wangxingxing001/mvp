@@ -2,6 +2,7 @@ package com.bigstar.mvp.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 
 /*
@@ -24,6 +25,7 @@ public abstract class MvpAcitivity<P extends BasePresenter> extends BaseActivity
     protected void onDestroy() {
         super.onDestroy();
         // 如果界面已经destroy,那么需要关闭流,以免内存溢出
+        // 关闭了view回调,还需要关闭prensenter
         if (mvpPresenter != null){
             mvpPresenter.detachView();
         }

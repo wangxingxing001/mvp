@@ -2,16 +2,13 @@ package com.bigstar.mvp.mvp;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import com.bigstar.mvp.base.BasePresenter;
 import com.bigstar.mvp.callback.StringDialogCallback;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 
-
-/*
- * 我是大星
- */
 /*
  * 我是Prensenter层,我的任务则是去做一些耗时操纵,网络请求等
  * 然后把结果返回给View
@@ -19,11 +16,12 @@ import com.lzy.okgo.model.Response;
 public class MainPresenter extends BasePresenter<MainView>{
 
     private Context mContext;
-
-    public MainPresenter(MainView mainView,Context context){
+    private String TAG;
+    public MainPresenter(MainView mainView,Context context,String tag){
         // 既然继承了BasePresenter,把当前的viwe填入进来
         attachView(mainView);
         this.mContext = context;
+        this.TAG = tag;
     }
 
     // 进行网络请求
@@ -35,13 +33,26 @@ public class MainPresenter extends BasePresenter<MainView>{
                 .execute(new StringDialogCallback((Activity) mContext) {
                     @Override
                     public void onSuccess(Response<String> response) {
-                        mvpView.getDataModel(response);
+                        // 判断view,以免内存泄露
+                        if (mvpView!=null) {
+                            mvpView.getDataModel(response);
+                        }
                     }
 
                     @Override
                     public void onError(Response<String> response) {
-                        mvpView.getDataFail(response.message());
+                        // 判断view,以免内存泄露
+                        if (mvpView!=null) {
+                            mvpView.getDataFail(response.message());
+                        }
                     }
                 });
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        // 如果关闭了View,那就关闭网络请求,以免内存泄露
+        OkGo.getInstance().cancelTag(TAG);
     }
 }

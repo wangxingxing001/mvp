@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ import butterknife.ButterKnife;
  * 都需要View小秘书给汇报到activity这块,然后activity拿到并打开任务即Ui
  */
 public class MainActivity extends MvpAcitivity<MainPresenter> implements MainView {
+
+    private String TAG = getClass().getName();
 
     @Bind(R.id.but_get_data)
     Button butGetData;
@@ -56,7 +59,7 @@ public class MainActivity extends MvpAcitivity<MainPresenter> implements MainVie
     // 在此对Prenseter 实用类进行new,并且指定该View
     @Override
     protected MainPresenter setPresenter() {
-        return new MainPresenter(this,this);
+        return new MainPresenter(this,this,TAG);
     }
 
     // 这里是请求成功,返回的对象
