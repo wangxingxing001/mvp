@@ -4,9 +4,10 @@
 1. mvp 架构 
 
 2. 自定义播放View 
-### 自定义播放View 附图
+### 自定义播放View效果 附图
+![image](https://github.com/wangxingxing001/mvp/blob/master/app/src/main/res/drawable/play2.png)
+### 自定义播放View参数 附图
 ![image](https://github.com/wangxingxing001/mvp/blob/master/app/src/main/res/drawable/play1.png)
-
 ### 自定义播放View 属性介绍
 
 anim_direction : 是选择顺时针还是逆时针 有俩个参数 positive  and  negative<br/>
