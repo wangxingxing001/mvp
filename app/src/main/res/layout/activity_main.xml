@@ -1,47 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main_releat_layout"
     tools:context="com.bigstar.mvp.MainActivity">
-    
-    <ScrollView
+
+    <android.support.v7.widget.Toolbar
+        android:layout_below="@+id/main_releat_layout"
+        android:id="@+id/base_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="450dp">
-        <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-            <Button
-                android:id="@+id/but_get_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="请求数据"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+    </android.support.v7.widget.Toolbar>
+    <!-- 侧滑菜单 -->
+    <include layout="@layout/drawer_layout"/>
 
-            <TextView
-                android:id="@+id/http_head"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="请求头:"/>
-
-            <TextView
-                android:id="@+id/http_time"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="请求时间:"/>
-
-            <TextView
-                android:id="@+id/http_data"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="请求数据:"/>
-    </LinearLayout>
-    </ScrollView>
-    <!-- 我是作者 -->
-    <include layout="@layout/author_layout" />
-
-</FrameLayout>
+</LinearLayout>

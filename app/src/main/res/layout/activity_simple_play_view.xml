@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/simple_play_view_layout"
+    android:orientation="vertical"
+    tools:context="com.bigstar.mvp.ui.SimplePlayViewActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_below="@+id/simple_play_view_layout"
+        android:id="@+id/base_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+    </android.support.v7.widget.Toolbar>
+    <Button
+        android:id="@+id/but_simple_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点击感受下"/>
+    <com.bigstar.mvp.view.PlayButtonView
+        android:layout_marginTop="50dp"
+        android:id="@+id/play_positive"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        app:anim_direction="positive"
+        app:anim_duration="300"
+        app:bg_color="#E0E0E0"
+        app:btn_color="#000000"
+        app:gap_width="30"/>
+
+    <com.bigstar.mvp.view.PlayButtonView
+        android:layout_marginTop="50dp"
+        android:id="@+id/play_negative"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        app:anim_direction="negative"
+        app:anim_duration="300"
+        app:bg_color="#E0E0E0"
+        app:btn_color="#000000"
+        app:gap_width="30"/>
+</LinearLayout>

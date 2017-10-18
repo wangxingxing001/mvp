@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/simple_mvp_layout"
+    tools:context="com.bigstar.mvp.ui.SimpleMvpActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_below="@+id/simple_mvp_layout"
+        android:id="@+id/base_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_below="@+id/base_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/but_get_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="请求数据"/>
+
+            <TextView
+                android:id="@+id/http_head"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请求头:"/>
+
+            <TextView
+                android:id="@+id/http_time"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请求时间:"/>
+
+            <TextView
+                android:id="@+id/http_data"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请求数据:"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

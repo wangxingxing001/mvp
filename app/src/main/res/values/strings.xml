@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">mvp</string>
-    <string name="app_tips">大星 \n\nQQ集结营 208317912</string>
+    <string name="app_name">SimpleProject</string>
+    <string name="app_tips">QQ集结营: 208317912</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="action_settings">走你</string>
 </resources>
