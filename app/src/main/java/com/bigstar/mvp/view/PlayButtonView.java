@@ -46,7 +46,7 @@ public class PlayButtonView extends View {
     private int mBtnColor = Color.BLACK;
     // 圆的半径
     private int mRadius;
-
+    // 方向,默认是position
     private int mDirection = Direction.POSITIVE.value;
     // 圆内矩形宽度
     private float mRectWidth;
