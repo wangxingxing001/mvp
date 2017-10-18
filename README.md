@@ -5,7 +5,7 @@
 
 2. 自定义播放View 
 # 附图
-https://github.com/wangxingxing001/mvp/blob/master/app/src/main/res/drawable/play1.png
+![image](https://github.com/wangxingxing001/mvp/blob/master/app/src/main/res/drawable/play1.png)
 
 # 属性介绍
 
